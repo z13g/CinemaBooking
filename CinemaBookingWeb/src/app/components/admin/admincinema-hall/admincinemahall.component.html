@@ -1,0 +1,61 @@
+<div class="layout-container">
+    <div *ngIf="cinemahallList.length && showList == true">
+        <h2 class="Movie-Text">CinemaHall List</h2>
+<table class="movie-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Hall Name</th>
+            <th>CinemaID</th>
+            <th>
+                <button class="create-btn" (click)="toggleSave()">Create</button>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cinemahall of cinemahallList">
+            <td data-label="ID">{{cinemahall.hallsID}}</td>
+            <td data-label="Name">{{cinemahall.hallName}}</td>
+            <td data-label="CinemaID">{{ cinemahall.cinemaID }}</td>
+            <td>
+                <button class="edit-btn" (click)="editCinemaHall(cinemahall)">Edit</button>
+                <button class="delete-btn" (click)="deleteCinemaHall(cinemahall)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<div *ngIf="showForm == true">
+<div *ngIf="isEditMode == true">
+<h2 class="Movie-Text">CinemaHall Edit</h2>
+</div>
+<div *ngIf="isEditMode == false">
+<h2 class="Movie-Text">CinemaHall Create</h2>
+</div>
+<div class="form-container">
+    <form [formGroup]="cinemahallForm" (ngSubmit)="save()">
+      <input type="hidden" formControlName="hallsID">
+      <span>Hall Name</span>
+      <input type="text" placeholder="Hall Name" id="hallname" formControlName="hallName">
+        <span>Cinema</span>
+        <select formControlName="cinemaID" id="cinemaID">
+            <option value="">Select Cinema</option>
+            <option *ngFor="let cinema of cinemaList" [value]="cinema.cinemaID">
+              {{ cinema.name }}
+            </option>
+          </select>
+          
+      <button type="submit">Save</button>
+      <button class="cancel-btn" type="cancel" (click)="toggleSave()">Cancel</button>
+      <small>
+        <div *ngIf="cinemahallForm.get('hallname')?.invalid" class="error-message">
+           | Hall Name is requrired |
+        </div>
+      </small>
+    </form>
+  </div>
+</div>
+  
+
+  

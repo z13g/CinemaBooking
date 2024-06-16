@@ -1,0 +1,67 @@
+<div class="layout-container">
+    <div *ngIf="seatList.length && showList == true">
+        <h2 class="Movie-Text">Seat List</h2>
+<table class="movie-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>HallID</th>
+            <th>Seat Number</th>
+            <th>Seat Row</th>
+            <th>
+                <button class="create-btn" (click)="toggleSave()">Create</button>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let seat of seatList">
+            <td data-label="ID">{{seat.seatID}}</td>
+            <td data-label="HallID">{{seat.hallID}}</td>
+            <td data-label="SeatNumber">{{ seat.seatNumber }}</td>
+            <td data-label="SeatRow">{{ seat.seatRow }}</td>
+            <td>
+                <button class="edit-btn" (click)="editSeat(seat)">Edit</button>
+                <button class="delete-btn" (click)="deleteSeat(seat)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<div *ngIf="showForm">
+    <h2 class="Movie-Text">{{ isEditMode ? 'Seat Edit' : 'Seat Create' }}</h2>
+    <div class="form-container">
+        <form [formGroup]="seatForm" (ngSubmit)="save()">
+            <input type="hidden" formControlName="seatID">
+            <div *ngIf="!isEditMode">
+                <span>How many seats Do you want?</span>
+                <input type="number" placeholder="Number of new Seats" formControlName="seatNumber" required>
+            </div>
+            <div *ngIf="isEditMode">
+            <div>
+                <span>Seat Number</span>
+                <input type="number" placeholder="Seat Number" formControlName="seatNumber" required>
+            </div>
+                <span>Seat Row</span>
+                <input type="text" placeholder="Seat Row" formControlName="seatRow" required>
+            </div>
+            <div>
+                <span>Hall ID</span>
+                <select formControlName="hallID">
+                    <option value="">Select Cinema Hall</option>
+                    <option *ngFor="let hall of cinemahallList" [value]="hall.hallsID">
+                        {{ hall.hallName }}
+                    </option>
+                </select>
+            </div>
+            <div>
+                <button type="submit">{{ isEditMode ? 'Update Seat' : 'Create Seat' }}</button>
+                <button type="button" class="cancel-btn" (click)="resetForm()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+  
+
+  

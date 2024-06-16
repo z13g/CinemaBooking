@@ -1,0 +1,52 @@
+<div class="layout-container">
+    <div *ngIf="regionList.length && showList == true">
+        <h2 class="Movie-Text">Region List</h2>
+<table class="movie-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Region Name</th>
+            <th>
+                <button class="create-btn" (click)="toggleSave()">Create</button>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let region of regionList">
+            <td data-label="ID">{{region.regionID}}</td>
+            <td data-label="regionName">{{region.regionName}}</td>
+            <td>
+                <button class="edit-btn" (click)="editRegion(region)">Edit</button>
+                <button class="delete-btn" (click)="deleteRegion(region)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<div *ngIf="showForm == true">
+<div *ngIf="isEditMode == true">
+<h2 class="Movie-Text">Region Edit</h2>
+</div>
+<div *ngIf="isEditMode == false">
+<h2 class="Movie-Text">Region Create</h2>
+</div>
+<div class="form-container">
+    <form [formGroup]="regionForm" (ngSubmit)="save()">
+      <input type="hidden" formControlName="regionID">
+      <span>Region Name</span>
+      <input type="text" placeholder="Region Name" id="regionName" formControlName="regionName">
+      
+      <button type="submit">Save</button>
+      <button class="cancel-btn" type="cancel" (click)="toggleSave()">Cancel</button>
+      <small>
+        <div *ngIf="regionForm.get('regionName')?.invalid" class="error-message">
+           | Region Name is requrired |
+        </div>
+      </small>
+    </form>
+  </div>
+</div>
+  
+
+  

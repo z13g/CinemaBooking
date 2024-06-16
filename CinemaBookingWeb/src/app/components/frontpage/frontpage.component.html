@@ -1,0 +1,154 @@
+<div class="layout-container">
+  <nav id="menu">
+    <div class="region region-menu">
+      <nav role="navigation" id="block-mainnavigation">
+        <div class="navbar-left">
+          <ul class="menu">
+            <li class="menu-item-expand">
+              <span class="icon-bio" (click)="toggleCinemaDisplay()">Biografer <span class="arrow" [class.up]="showCinemaList"></span></span>
+              <div class="cinema-list" [ngStyle]="{'display': showCinemaList ? 'flex' : 'none'}" id="cinemaList">
+                <div class="cinema-column" *ngFor="let region of regionList">
+                  <span>{{ region.regionName }}</span>
+                  <ul>
+                    <li *ngFor="let cinema of cinemasByRegion[region.regionName]">
+                      <a href="#">{{ cinema.name }}</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div id="sitebranding" class="sitebranding">
+          <a href="/" class="logo">
+            <img src="/static/assets/images/logo.png" alt="logo">
+          </a>
+        </div>
+
+        <div class="navbar-right">
+          <div class="Area-List">
+            <select class="Area-select" (change)="onAreaChange($event)">
+              <option class="Area-Select-Option" 
+                      *ngFor="let area of areaList" 
+                      [value]="area.areaID"
+                      [selected]="area.areaName === SelectedCityName">
+                {{ area.areaName }}
+              </option>
+            </select>
+            
+          </div>
+          
+          <a *ngIf="!isAuthenticated" routerLink="/login" routerLinkActive="active">Login</a>
+          <a *ngIf="isAuthenticated" (click)="logout()" routerLink="/" routerLinkActive="active">Logout</a>
+        </div>
+
+      </nav>
+    </div>
+  </nav>
+  <main role="main">
+    <div class="layout-content">
+      <div class="Frontpage-container">
+        <div class="field-items">
+          <div class="grid-container">
+
+          <div class="field-item large">
+            <div class="video-container">
+              <video autoplay="autoplay" loop="loop" muted="muted" (click)="goToMoviePage('2')">
+                <source src="static/assets/videos/Challenger.mp4" type="video/mp4" autoplay="autoplay">
+              </video>
+            </div>
+            <div class="frontpage-content large">
+              <div class="Col1">
+                <div class="frontpage-field-title">CHALLENGERS</div>
+                <div class="frontpage-field-subtitle">Zendaya i sexet trekantsdrama</div>
+              </div>
+              <div class="col2">
+                  <div class="frontpage-link-title" (click)="goToMoviePage('2')">Find billetter  <fa-icon [icon]="faTicket"></fa-icon></div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="field-item small top">
+            <div class="image-container">
+              <img (click)="goToMoviePage('1')" src="static/assets/images/Jagtsaeson2Frontpage.jpg" alt="Jagtsaeson" width="312" height="162" loading="lazy">
+            </div>
+            <div class="frontpage-content">
+              <div class="Col1">
+                <div class="frontpage-field-title-Small">Jagt Sæson 2</div>
+                <div class="frontpage-field-subtitle-Small">Eva kaster sig ud i en dum plan</div>
+              </div>
+              <div class="Col2">
+                  <fa-icon (click)="goToMoviePage('1')" [icon]="faTicket" class="ticket"></fa-icon>
+              </div>
+            </div>
+          </div>
+
+          <div class="field-item small bottom">
+            <div class="image-container">
+              <img (click)="goToMoviePage('3')" src="static/assets/images/KungfuPanda4Frontpage.jpg" width="312" height="162" alt="KungfuPanda4" loading="lazy">
+            </div>
+            <div class="frontpage-content">
+              <div class="Col1">
+                <div class="frontpage-field-title-Small">Kung-Fu Panda 4</div>
+                <div class="frontpage-field-subtitle-Small">Vil Po mestre sin chi?</div>
+              </div>
+              <div class="Col2">
+                  <fa-icon (click)="goToMoviePage('3')" [icon]="faTicket" class="ticket"></fa-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <div class="Movie-Header">
+          <span class="Movie-Header-Text">Planlæg dit biografbesøg i {{SelectedCityName}}</span>
+          <button class="reset-filter-button" (click)="resetDropdowns()">Nulstil Filter</button>
+      </div>      
+
+        <div class="Filter-container">
+          <div class="dropdown-filters">
+            <select class="filter-dropdown" [(ngModel)]="selectedCinemaId" (change)="onCinemaChange($event)">
+              <option value="" disabled selected>Vælg Biograf</option>
+              <option *ngFor="let cinema of cinemaInSelectedArea" [value]="cinema.cinemaID" [selected]="cinema.cinemaID?.toString() === selectedCinemaId.toString()">
+                {{ cinema.name }}
+              </option>
+            </select>
+
+            <select class="filter-dropdown" [(ngModel)]="selectedMovieId" (change)="onMovieChange($event)">
+              <option value="" disabled selected>Vælg film</option>
+              <option *ngFor="let movie of movieList" [value]="movie.movieID" [selected]="movie.movieID?.toString() === selectedMovieId.toString()">
+                {{ movie.title}}
+              </option>
+            </select>
+
+            <select class="filter-dropdown" [(ngModel)]="selectedGenreId" (change)="onGenreChange($event)">
+              <option value="" disabled selected>Vælg Genre</option>
+              <option *ngFor="let genre of genreList" [value]="genre.genreID" [selected]="genre.genreID?.toString() === selectedGenreId.toString()">
+                {{ genre.genreName}}
+              </option>
+            </select>
+          </div>
+
+          <div class="movie-container">
+            <div *ngFor="let movie of displayedMovies" class="movie-entry">
+              <div class="movie-image">
+                <img (click)="goToMoviePage(movie.movieID!.toString())" [src]="movie.movieLink" alt="{{ movie.title }}" width="220" height="330" />
+              </div>
+              <div class="movie-info">
+                <h2>
+                  <span class="Movie-Title" [attr.title]="movie.title">{{ truncateTitle(movie.title ?? '') }}</span>
+                </h2>
+                <button (click)="goToMoviePage(movie.movieID!.toString())" class="buy-button">Køb <fa-icon [icon]="faTicket"></fa-icon></button>
+              </div>
+            </div>
+          </div>
+          
+
+
+      </div>
+      </div>
+    </div>
+  </main>
+</div>
+  

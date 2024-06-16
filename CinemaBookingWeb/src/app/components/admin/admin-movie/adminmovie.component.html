@@ -1,0 +1,86 @@
+<div class="layout-container">
+    <div *ngIf="movieList.length && showList == true">
+        <h2 class="Movie-Text">Movie List</h2>
+<table class="movie-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Director</th>
+            <th>Duration</th>
+            <th>ImgLink</th>
+            <th>
+                <button class="create-btn" (click)="toggleSave()">Create</button>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let movie of movieList">
+            <td data-label="ID">{{movie.movieID}}</td>
+            <td data-label="Title">{{movie.title}}</td>
+            <td data-label="Director">{{ movie.director }}</td>
+            <td data-label="Duration">{{ movie.duration }}</td>
+            <td data-label="movieLink">{{ movie.movieLink }}</td>
+            <td>
+                <button class="edit-btn" (click)="editMovie(movie)">Edit</button>
+                <button class="delete-btn" (click)="deleteMovie(movie)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<div *ngIf="showForm == true">
+<div *ngIf="isEditMode == true">
+<h2 class="Movie-Text">Movie Edit</h2>
+</div>
+<div *ngIf="isEditMode == false">
+<h2 class="Movie-Text">Movie Create</h2>
+</div>
+<div class="form-container">
+    <form [formGroup]="movieForm" (ngSubmit)="save()">
+      <input type="hidden" formControlName="movieID">
+      <span>Title</span>
+      <input type="text" placeholder="Title" id="title" formControlName="title">
+      <span>Duration</span>
+      <input type="number" placeholder="Duration" id="duration" formControlName="duration">
+      <span>Director</span>
+      <input type="text" placeholder="Director" id="director" formControlName="director">
+      <span>MovieLink</span>
+      <input type="text" placeholder="MovieLink" id="movieLink" formControlName="movieLink">
+      <span>TrailerLink</span>
+      <input type="text" placeholder="TrailerLink" id="trailerLink" formControlName="trailerLink">
+      <div class="dropdown">
+        <span>Genre</span>
+        <div class="dropdown-placeholder" [class.open]="dropdownOpen" (click)="toggleDropdown()">
+          Select Genre
+        </div>
+        <div *ngIf="dropdownOpen">
+          <select id="genreSelect" multiple (change)="onGenreChange($event)">
+            <option *ngFor="let genre of genreList" [value]="genre.genreID">{{ genre.genreName }}</option>
+          </select>
+        </div>
+      </div>
+      
+      <button type="submit">Save</button>
+      <button class="cancel-btn" type="cancel" (click)="toggleSave()">Cancel</button>
+      <small>
+        <div *ngIf="movieForm.get('title')?.invalid" class="error-message">
+           | Title is requrired |
+        </div>
+        <div *ngIf="movieForm.get('duration')?.invalid" class="error-message">
+          |  Duration is requrired |
+        </div>
+        <div *ngIf="movieForm.get('director')?.invalid" class="error-message">
+          |  Director is requrired |
+        </div>
+        <div *ngIf="movieForm.get('movieLink')?.invalid" class="error-message">
+            |  MovieLink is requrired |
+        </div>
+      </small>
+    </form>
+  </div>
+</div>
+  
+
+  

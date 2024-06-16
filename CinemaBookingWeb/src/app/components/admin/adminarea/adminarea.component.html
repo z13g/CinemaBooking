@@ -1,0 +1,61 @@
+<div class="layout-container">
+    <div *ngIf="areaList.length && showList == true">
+        <h2 class="Movie-Text">Area List</h2>
+<table class="movie-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Area Name</th>
+            <th>RegionID</th>
+            <th>
+                <button class="create-btn" (click)="toggleSave()">Create</button>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let area of areaList">
+            <td data-label="ID">{{area.areaID}}</td>
+            <td data-label="areaName">{{area.areaName}}</td>
+            <td data-label="regionID">{{ area.regionID }}</td>
+            <td>
+                <button class="edit-btn" (click)="editArea(area)">Edit</button>
+                <button class="delete-btn" (click)="deleteArea(area)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<div *ngIf="showForm == true">
+<div *ngIf="isEditMode == true">
+<h2 class="Movie-Text">Area Edit</h2>
+</div>
+<div *ngIf="isEditMode == false">
+<h2 class="Movie-Text">Area Create</h2>
+</div>
+<div class="form-container">
+    <form [formGroup]="areaForm" (ngSubmit)="save()">
+      <input type="hidden" formControlName="areaID">
+      <span>Area Name</span>
+      <input type="text" placeholder="Area Name" id="areaName" formControlName="areaName">
+        <span>Cinema</span>
+        <select formControlName="regionID" id="regionID">
+            <option value="">Select Regions</option>
+            <option *ngFor="let region of regionList" [value]="region.regionID">
+              {{ region.regionName }}
+            </option>
+          </select>
+          
+      <button type="submit">Save</button>
+      <button class="cancel-btn" type="cancel" (click)="toggleSave()">Cancel</button>
+      <small>
+        <div *ngIf="areaForm.get('areaName')?.invalid" class="error-message">
+           | Area Name is requrired |
+        </div>
+      </small>
+    </form>
+  </div>
+</div>
+  
+
+  

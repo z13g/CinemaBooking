@@ -1,0 +1,79 @@
+.confirmation-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #363f51;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: white;
+    margin-top: 20px;
+  }
+
+
+  .booking-details h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .booking-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .booking-info-item {
+    width: calc(50% - 10px);
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #2a3140;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .booking-info-item .label {
+    font-weight: bold;
+  }
+  
+  .seats-info {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .seat-info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #2a3140;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .seat-info-item .label {
+    font-weight: bold;
+  }
+  
+  @media (max-width: 768px) {
+    .booking-info-item {
+      width: 100%;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  button {
+    background-color: #2d7dfe;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: max-content;
+    min-width: 200px;
+  }
+  

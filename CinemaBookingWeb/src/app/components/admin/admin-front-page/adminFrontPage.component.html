@@ -1,0 +1,60 @@
+<div class="layout-container">
+  <nav id="menu">
+    <div class="region region-menu">
+      <nav role="navigation" id="block-mainnavigation">
+        <div class="navbar-left">
+          <div class="menu">
+            <!-- Toggle Menu on Click -->
+            <div class="menu-item-expand" (click)="menuVisible = !menuVisible">
+              <span class="icon-bio">&#9776; Menu <span class="arrow" [class.up]="menuVisible"></span></span>
+              <div class="cinema-list" *ngIf="menuVisible">
+                <ul>
+                  <li (click)="showSection('cinema')">Cinema</li>
+                  <li (click)="showSection('movie')">Movie</li>
+                  <li (click)="showSection('genre')">Genre</li>
+                  <li (click)="showSection('cinemahall')">CinemaHall</li>
+                  <li (click)="showSection('region')">Region</li>
+                  <li (click)="showSection('role')">Role</li>
+                  <li (click)="showSection('seat')">Seat</li>
+                  <li (click)="showSection('show')">Show</li>
+                  <li (click)="showSection('userDetails')">UserDetails</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="sitebranding" class="sitebranding">
+          <a class="Admin-Text">Admin</a>
+          <a href="/admin" class="logo">
+            <img src="/static/assets/images/logo.png" alt="logo">
+          </a>
+        </div>
+
+        <div class="navbar-right">
+          <div class="Area-List">
+            <select class="Area-select">
+              <option class="Area-Select-Option"></option>
+            </select>
+          </div>
+          <a href="/adminmovie">
+            <span>Admin Test</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </nav>
+  <app-admin-cinema *ngIf="visibilityService.visibility('cinema') | async"></app-admin-cinema>
+  <app-admingenre *ngIf="visibilityService.visibility('genre') | async"></app-admingenre>
+  <app-admin-movie *ngIf="visibilityService.visibility('movie') | async"></app-admin-movie>
+  <app-adminarea *ngIf="visibilityService.visibility('area') | async"></app-adminarea>
+  <app-admincinema-hall *ngIf="visibilityService.visibility('cinemahall') | async"></app-admincinema-hall>
+  <app-adminregion *ngIf="visibilityService.visibility('region') | async"></app-adminregion>
+  <app-adminrole *ngIf="visibilityService.visibility('role') | async"></app-adminrole>
+  <app-adminseat *ngIf="visibilityService.visibility('seat') | async"></app-adminseat>
+  <app-adminshow *ngIf="visibilityService.visibility('show') | async"></app-adminshow>
+  <app-adminuserdetail *ngIf="visibilityService.visibility('userDetails') | async"></app-adminuserdetail>
+
+
+
+</div>

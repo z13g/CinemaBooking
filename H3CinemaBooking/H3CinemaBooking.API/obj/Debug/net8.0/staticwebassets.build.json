@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "eZ6GCKDF3VP4AwKyLVel6rIInay46ULCxZSsMYXsQKM=",
+  "Source": "H3CinemaBooking.API",
+  "BasePath": "_content/H3CinemaBooking.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

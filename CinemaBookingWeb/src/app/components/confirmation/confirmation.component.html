@@ -1,0 +1,63 @@
+<div class="confirmation-container">
+    <div class="booking-details">
+      <h1>Booking Bekræftelse</h1>
+      <div class="booking-info">
+        <div class="booking-info-item">
+          <span class="label">Betaling ID:</span>
+          <span class="value">{{ currentBooking?.bookingID }}</span>
+        </div>
+        <div class="booking-info-item">
+          <span class="label">Film Titel:</span>
+          <span class="value">{{ currentBooking?.movie?.title }}</span>
+        </div>
+        <div class="booking-info-item">
+          <span class="label">Instruktør:</span>
+          <span class="value">{{ currentBooking?.movie?.director }}</span>
+        </div>
+        <div class="booking-info-item">
+          <span class="label">Varighed:</span>
+          <span class="value">{{ currentBooking?.movie?.duration }} minutter</span>
+        </div>
+        <div class="booking-info-item">
+          <span class="label">Dato og Tid:</span>
+          <span class="value">{{ currentBooking?.show?.showDateTime | date:'medium' }}</span>
+        </div>
+        <div class="booking-info-item">
+            <span class="label">Lokation:</span>
+            <span class="value">{{ currentBooking?.cinema?.location }}</span>
+          </div>
+        <div class="booking-info-item">
+          <span class="label">Biografnavn:</span>
+          <span class="value">{{ currentBooking?.cinema?.name }}</span>
+        </div>
+        <div class="booking-info-item">
+          <span class="label">Sal:</span>
+          <span class="value">{{ currentBooking?.show?.hallID }}</span>
+        </div>
+        <div class="booking-info-item">
+          <span class="label">Antal Sæder:</span>
+          <span class="value">{{ currentBooking?.numberOfSeats }}</span>
+        </div>
+        <div class="booking-info-item">
+          <span class="label">Pris:</span>
+          <span class="value">{{ currentBooking?.price }} DKK</span>
+        </div>
+        <div class="seats-info">
+          <h2>Sæder:</h2>
+          <div *ngFor="let seat of currentBooking?.seats">
+            <div class="seat-info-item">
+              <span class="label">Sæde række:</span>
+              <span class="value">{{ seat?.seatRow }}</span>
+              <span class="label">Sæde nummer:</span>
+              <span class="value">{{ seat?.seatNumber }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="buttons">
+        <button (click)="goToHome()">Tilbage til forsiden</button>
+        <button (click)="orderMore()">Køb flere biletter</button>
+      </div>
+    </div>
+  </div>
+  

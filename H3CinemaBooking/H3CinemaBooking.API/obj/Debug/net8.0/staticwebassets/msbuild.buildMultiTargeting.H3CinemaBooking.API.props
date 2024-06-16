@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\H3CinemaBooking.API.props" />
+</Project>

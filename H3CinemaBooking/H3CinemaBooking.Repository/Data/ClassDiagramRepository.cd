@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="H3CinemaBooking.Repository.Data.Dbcontext" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAUkEAAAQgIAAAAAEgCACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Dbcontext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Models.BookingDTO" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAhAAAAAAQEMEAAAEAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\DTO\BookingDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Models.BookingSeat" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAMAAAAAAAAQAAAAABAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Models\ManyModel\BookingSeat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Models.Area" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAUAAAAAAAAAAAAAAACAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Models\Area.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Models.Booking" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAhAAAAAAQAMAAAAEAAAAAAAAAIEAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Models\Booking.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Models.BookShow" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAEAAAAgAAAAIAAAAAAAAAAAAAAAAIgAE=</HashCode>
+      <FileName>Models\BookShow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Models.Cinema" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAIAAASAAAAAAAAAIAAAAQAAAAA=</HashCode>
+      <FileName>Models\Cinema.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Models.CinemaHall" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAACgAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Models\CinemaHall.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Models.Genre" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Models\Genre.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Models.Movie" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAQACAEAAAAIAAAAAAAAAAAEAACAAAAAAAAA=</HashCode>
+      <FileName>Models\Movie.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Models.Region" Collapsed="true">
+    <Position X="11" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAQAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Region.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Models.Roles" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Models\Role.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Models.Seat" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BIAAAAAAAAAEAAAAAAAAAAAAAAIAAAACAIAAAAAAAAA=</HashCode>
+      <FileName>Models\Seat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Models.Show" Collapsed="true">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAgAAAAAAQAgAAAAAAAAAAIAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Show.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Models.UserDetail" Collapsed="true">
+    <Position X="9.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EACAAAIAACAgAAAAEAAAQAQAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Models\UserDetail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Models.DTO_s.FilteredShowDTO" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Models\DTO\FilteredShowData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Models.DTO_s.ShowDetailsDTO" Collapsed="true">
+    <Position X="4" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAACAAAAAIAAAAAAAAAAAAAAAAAkAE=</HashCode>
+      <FileName>Models\DTO\ShowDetailsDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Models.DTO_s.UserDetailDTO" Collapsed="true">
+    <Position X="11" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAACAgAAAAEAAAQAQAAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Models\DTO\UserDetailDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Models.DTO.LoginUserDTO" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Models\DTO\LoginUserDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Models.DTO.RegisterUserDTO" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAQAQAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Models\DTO\RegisterUserDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Models.DTO.ReserveSeatDTO" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Models\DTO\ReserveSeatDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Models.DTO.ReserveSeatResultDTO" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAgAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Models\DTO\ReserveSeatResultDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Models.DTO.SeatReservationStatusDTO" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAACAA=</HashCode>
+      <FileName>Models\DTO\ReserveSeatResultDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Models.DTO.SeatDTO" Collapsed="true">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BIAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAIAAAAAACAA=</HashCode>
+      <FileName>Models\DTO\SeatDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Repositories.BookingRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAKACAAAAAEEAAAAAAEIAQAAAAAAEAAAgAAAAAAAIA=</HashCode>
+      <FileName>Repositories\BookingRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Repositories.GenericRepository&lt;TEntity&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAUCAAAAAAAAAAAAAAAAAAQAACAAAEAACAAAAAAAAIA=</HashCode>
+      <FileName>Repositories\GenericRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Repositories.GenreRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAgAAAAAAAAAAAAAAAAQAAAAAAEAAAoAAAAAAAIA=</HashCode>
+      <FileName>Repositories\GenreRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Repositories.MovieRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABACAAAAAAAAAAAAAAAAIAAAAAAAAEAAAoAAAAAAAIg=</HashCode>
+      <FileName>Repositories\MovieRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Repositories.SeatRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAQAAAAAAAAAAAIAQAAAAAAEAAAoAAEAAAAIA=</HashCode>
+      <FileName>Repositories\SeatRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Repositories.ShowRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAAAAAAAAAAAAAAAIAQAAAAAAEAAAoAAAAAAAIA=</HashCode>
+      <FileName>Repositories\ShowRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Repositories.UserDetailRepository" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAEAAAAAAAAAAAAAIAAAEACAAEAAAoAAAAAAAIA=</HashCode>
+      <FileName>Repositories\UserDetailRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Service.BookingService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAABAAAAQAAIAAHAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\BookingService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Service.JWTokenService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAEAAAAAAAAAAAAAAAAAAAACACBAAAEAAAAAAAA=</HashCode>
+      <FileName>Service\JWTokenService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Service.PropertyValidationService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\PropertyValidationService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Service.ShowService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAABABAAAAQAAQAAHAACAAAAAAAAABAAAA=</HashCode>
+      <FileName>Service\ShowService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.Service.UserDetailService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAEAIAAAAAgAQAABAAAQAB4AAAACAAAAAKBQAARAAAA=</HashCode>
+      <FileName>Service\UserDetailService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="H3CinemaBooking.Repository.DTO.HashingService" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\HashingService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="H3CinemaBooking.Repository.Interfaces.IBookingRepository" Collapsed="true">
+    <Position X="0.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAIACAAAAAEEAAAAAAEIAAAAAAAAEAAAgAAAAAAAIA=</HashCode>
+      <FileName>Interfaces\IBookingRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="H3CinemaBooking.Repository.Interfaces.IBookingService" Collapsed="true">
+    <Position X="2.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IBookingService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="H3CinemaBooking.Repository.Interfaces.IGenericRepository&lt;TEntity&gt;" Collapsed="true">
+    <Position X="4" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAUAAAAAAAAAAAAAAAAAAAAAACAAAEAAAAAAAAAAAIA=</HashCode>
+      <FileName>Interfaces\IGenericInterface.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="H3CinemaBooking.Repository.Interfaces.IGenreRepository" Collapsed="true">
+    <Position X="5.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAAAEAAAoAAAAAAAIA=</HashCode>
+      <FileName>Interfaces\IGenreRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="H3CinemaBooking.Repository.Interfaces.IJWTokenService" Collapsed="true">
+    <Position X="7.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAAAACBAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IJWTokenService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="H3CinemaBooking.Repository.Interfaces.IMovieRepository" Collapsed="true">
+    <Position X="9.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAIAAAAAAAAEAAAoAAAAAAAIA=</HashCode>
+      <FileName>Interfaces\IMovieRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="H3CinemaBooking.Repository.Interfaces.IPropertyValidationService" Collapsed="true">
+    <Position X="11" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IPropertyValidationService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="H3CinemaBooking.Repository.Interfaces.ISeatRepository" Collapsed="true">
+    <Position X="0.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAIAAAAAAAAEAAAoAAEAAAAIA=</HashCode>
+      <FileName>Interfaces\ISeatRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="H3CinemaBooking.Repository.Interfaces.IShowRepository" Collapsed="true">
+    <Position X="2.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAIAAAAAAAAEAAAoAAAAAAAIA=</HashCode>
+      <FileName>Interfaces\IShowRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="H3CinemaBooking.Repository.Interfaces.IShowService" Collapsed="true">
+    <Position X="4" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Interfaces\IShowService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="H3CinemaBooking.Repository.Interfaces.IUserDetailRepository" Collapsed="true">
+    <Position X="5.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAIAAAEACAAEAAAoAAAAAAAIA=</HashCode>
+      <FileName>Interfaces\IUserDetailRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="H3CinemaBooking.Repository.Interfaces.IUserDetailService" Collapsed="true">
+    <Position X="7.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAIAAAAAgAQAABAAAAABoAAAAAAAAAAKAQAAQAAAA=</HashCode>
+      <FileName>Interfaces\IUserDetailService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="H3CinemaBooking.Repository.Models.SeatStatus" Collapsed="true">
+    <Position X="0.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAACAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\SeatStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

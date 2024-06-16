@@ -1,0 +1,86 @@
+<div class="layout-container">
+  <div *ngIf="showsList.length && showList == true">
+      <h2 class="Movie-Text">Show List</h2>
+<table class="movie-table">
+  <thead>
+      <tr>
+          <th>ID</th>
+          <th>HallID</th>
+          <th>MovieID</th>
+          <th>Price</th>
+          <th>ShowDateTime</th>
+          <th>
+              <button class="create-btn" (click)="toggleSave()">Create</button>
+          </th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let show of showsList">
+          <td data-label="ID">{{show.showID}}</td>
+          <td data-label="HallID">{{show.hallID}}</td>
+          <td data-label="MovieID">{{ show.movieID }}</td>
+          <td data-label="Price">{{ show.price }}</td>
+          <td data-label="Showdatetime">{{ show.showDateTime | date: 'medium'}}</td>
+          <td>
+              <button class="edit-btn" (click)="editShow(show)">Edit</button>
+              <button class="delete-btn" (click)="deleteShow(show)">Delete</button>
+          </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+
+<div *ngIf="showForm == true">
+<div *ngIf="isEditMode == true">
+<h2 class="Movie-Text">Show Edit</h2>
+</div>
+<div *ngIf="isEditMode == false">
+<h2 class="Movie-Text">Show Create</h2>
+</div>
+<div class="form-container">
+  <form [formGroup]="showsForm" (ngSubmit)="save()">
+    <input type="hidden" formControlName="showID">
+
+    <span>Price</span>
+    <input type="number" placeholder="Price" id="price" formControlName="price">
+
+      <span>HallID</span>
+      <select formControlName="hallID" id="hallID">
+          <option value="">Select CinemaHall</option>
+          <option *ngFor="let hall of hallList" [value]="hall.hallsID">
+            {{ hall.hallName }}
+          </option>
+        </select>
+
+        <span>MovieID</span>
+      <select formControlName="movieID" id="movieID">
+          <option value="">Select Movie</option>
+          <option *ngFor="let movie of movieList" [value]="movie.movieID">
+            {{ movie.title }}
+          </option>
+        </select>
+
+        <span>Date Time</span>
+    <div class="DateTimeInput">
+      <mat-form-field class="datetime">
+        <mat-label>Choose date and time</mat-label>
+        <input matInput [ngxMatDatetimePicker]="picker" formControlName="showdatetime" (dateChange)="onDateTimeChange($event)">
+        <ngx-mat-datepicker-toggle matSuffix [for]="picker"></ngx-mat-datepicker-toggle>
+        <ngx-mat-datetime-picker #picker></ngx-mat-datetime-picker>
+      </mat-form-field> 
+    </div>
+        
+    <button type="submit">Save</button>
+    <button class="cancel-btn" type="cancel" (click)="toggleSave()">Cancel</button>
+    <small>
+      <div *ngIf="showsForm.get('price')?.invalid" class="error-message">
+         | Price is requrired |
+      </div>
+    </small>
+  </form>
+</div>
+</div>
+
+
+
+

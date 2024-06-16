@@ -1,0 +1,9 @@
+<p>{{costumer}}</p>
+
+<form [formGroup]="UserdetailForm"] action="" (ngSubmit)="create()">
+    <input type="text" name="id" placeholder="id" formControlName="id">
+    <input type="text" name="name" placeholder="name" formControlName="name">
+    <input type="text" name="description" placeholder="description" formControlName="description">
+    <input type="text" name="age" id="age" placeholder="age" formControlName="age">
+    <button type="submit">Save</button>
+</form>

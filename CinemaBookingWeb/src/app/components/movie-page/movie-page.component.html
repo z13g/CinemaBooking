@@ -1,0 +1,215 @@
+<div class="login-modal" *ngIf="showModal">
+    <div class="modal-content">
+      <span class="close" (click)="toggleModal()">&times;</span>
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <span class="form-input-name"><h1>E-mail</h1></span>
+        <input formControlName="email" class="login-modal-inputs" type="email" required>
+        <span class="form-input-name"><h1>Adgangskode</h1></span>
+        <input formControlName="password" class="login-modal-inputs" type="password" required>
+        <div *ngIf="loginError">
+            <span class="login-error">Forkert e-mail eller adgangskode</span>
+        </div>
+        <div class="submit-section">
+            <div class="remember-me-section">
+                <input class="remember-me-input" type="checkbox" id="rememberMe" name="rememberMe">
+                <label class="remember-me-label" for="rememberMe">Husk mig</label>
+            </div>
+            <button class="login-modal-inputs submit" type="submit">Log ind</button>
+        </div>
+      </form>
+    </div>
+  </div>
+    
+    <body>
+        <nav id="menu">
+        <div class="region region-menu">
+            <nav role="navigation" id="block-mainnavigation">
+            <div class="navbar-left">
+                <div class="Area-List">
+                    <select class="Area-select" (change)="onAreaChange($event)">
+                    <option class="Area-Select-Option" 
+                            *ngFor="let area of areaList" 
+                            [value]="area.areaID"
+                            [selected]="area.areaName === SelectedCityName">
+                        {{ area.areaName }}
+                    </option>
+                    </select>
+                </div>
+            </div>
+    
+            <div id="sitebranding" class="sitebranding">
+                <a href="/" class="logo">
+                <img src="/static/assets/images/logo.png" alt="logo">
+                </a>
+            </div>
+    
+            <div class="navbar-right">
+                <a *ngIf="!isAuthenticated" (click)="toggleModal()" routerLinkActive="active">Login</a>
+                <a *ngIf="isAuthenticated" (click)="logout()" [routerLink]="['/moviepage', selectedMovie?.movieID]" routerLinkActive="active">Logout</a>
+            </div>
+            </nav>
+        </div>
+        </nav>
+        
+        <div class="movie-layout">
+        <div class="movie-container">
+            <div class="left-column">
+            <img src={{selectedMovie?.movieLink}} alt="Challengers Movie Poster">
+            <iframe *ngIf="selectedMovie?.trailerLink" [src]="sanitizeUrl(selectedMovie?.trailerLink || '')" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="right-column">
+            <h1 class="node-title"><span class="field field-name-title">{{selectedMovie?.title}}</span></h1>
+            <h2 class="node-title-city">Se den i {{SelectedCityName}}</h2>
+            <div class="cta-buttons">
+                <button class="timeButton" (click)="LookTime()">
+                    <div class="reserve-button">Se tider <fa-icon [icon]="faTicket"></fa-icon></div>
+                </button>
+                <div *ngIf="isInWatchList(selectedMovie?.movieID); else addTemplate" class="watch-list-link added" (click)="toggleWatchList(selectedMovie?.movieID)">
+                    Fjern fra watchlist
+                  </div>
+                  <ng-template #addTemplate>
+                    <div class="watch-list-link" (click)="toggleWatchList(selectedMovie?.movieID)">
+                      Tilføj til watchlist
+                    </div>
+                  </ng-template>
+                  
+                  
+            </div>
+            <div class="extra-info">
+                <div class="row1">
+                  <div class="info-row">
+                    <div class="field-group">
+                      <span class="field-label">Aldergrænse:</span>
+                      <span class="field-item">Tilladt for børn over 11 år</span>
+                    </div>
+                    <div class="field-group">
+                      <span class="field-label">Filmlængde:</span>
+                      <span class="field-item">{{formatMinutesToHoursAndMinutes(selectedMovie?.duration)}}</span>
+                    </div>
+                  </div>
+                  <div class="info-row">
+                    <div class="field-group">
+                      <span class="field-label">Original titel:</span>
+                      <span class="field-item">{{selectedMovie?.title}}</span>
+                    </div>
+                    <div class="field-group">
+                      <span class="field-label">Premiere:</span>
+                      <span class="field-item">25. april</span>
+                    </div>
+                  </div>
+                  <div *ngIf="!toggleDetail && showLink">
+                    <a (click)="toggleDetails()" class="details-link">Vis flere detaljer ▼</a>
+                  </div>
+                </div>
+                <div class="row2">
+                  <div class="info-row">
+                    <div class="field-group">
+                      <span class="field-label">Genre:</span>
+                      <div *ngFor="let genre of selectedMovie?.genres">
+                        <span class="field-item">{{genre.genreName}}</span>
+                      </div>  
+                    </div>
+                    <div class="field-group">
+                      <span class="field-label">Instruktør:</span>
+                      <span class="field-item">{{selectedMovie?.director}}</span>
+                    </div>
+                  </div>
+                  <div class="info-row">
+                    <div class="field-group"></div>
+                    <div class="field-group">
+                      <span class="field-label">Skuespilllere:</span>
+                      <span class="field-item">Zendaya</span>
+                      <span class="field-item">Josh O'Connor</span>
+                      <span class="field-item">Mike Faist</span>
+                    </div>
+                  </div>
+                  <div class="info-row">
+                    <div class="field-group">
+                      <span class="field-label">Copyright:</span>
+                      <span class="field-item">Warner Brothers (1)</span>
+                    </div>
+                  </div>
+                  <a (click)="toggleDetails()" class="details-link">Vis mindre detaljer &#9650;</a>
+                </div>
+              </div>
+              
+
+              <div class="body-info">
+                <div class="field field-name-body">
+                    <div class="row1">
+                        <p>Bacon ipsum dolor amet chicken venison ground round, chuck kielbasa strip steak beef pastrami turkey ham shoulder biltong. </p>
+                        <p>Andouille salami pastrami, frankfurter ribeye pancetta chicken. Corned beef cupim filet mignon swine, tenderloin short loin pork tail boudin tongue porchetta capicola landjaeger ham. Ground round porchetta ham drumstick swine.</p>
+                        <div *ngIf="!toggleBody && showBodyLink">
+                            <a (click)="toggleBodys()" class="details-link">Vis mere ▼</a>
+                        </div>
+                    </div>
+                    <div class="row2">
+                        <div *ngIf="toggleBody">
+                            <p>Picanha kielbasa filet mignon turkey tail, sirloin kevin pig jowl meatball.</p>
+                            <p>Strip steak filet mignon short ribs, cow biltong fatback capicola sirloin picanha short loin chuck chicken.</p>
+                            <p>Pork chop pastrami jowl brisket. Burgdoggen pig chicken landjaeger, turkey ball tip jerky tri-tip leberkas pastrami flank capicola ham hock prosciutto. Shank pork belly capicola short ribs.</p>
+                            <a (click)="toggleBodys()" class="details-link">Vis mindre &#9650;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        <div class="Show-movie">
+            <div class="movie-header">
+            <div class="header-content">
+                <span class="movie-header-text">Planlæg dit biografbesøg i {{SelectedCityName}}</span>
+    
+                <div class="filter-container">
+                <select class="filter-dropdown" [(ngModel)]="selectedCinemaName" (change)="onCinemaChange($event)">
+                    <option value="" disabled selected>Vælg Biograf</option>
+                    <option *ngFor="let cinema of cinemaInSelectedArea" [value]="cinema.name" [selected]="cinema.name === selectedCinemaName">
+                    {{cinema.name}}
+                    </option>
+                </select>   
+    
+                <select class="filter-dropdown" [(ngModel)]="selectedDate" (ngModelChange)="onDateChange(selectedDate)">
+                    <option value="" disabled selected>Vælg dag</option>
+                    <ng-container *ngFor="let cinemaName of objectKeys(showsByCinemaAndDateFiltered)">
+                    <ng-container *ngFor="let day of objectKeys(showsByCinemaAndDateFiltered[cinemaName])">
+                        <option [value]="day">
+                        {{ day | date:'EEEE, d MMMM y' }}
+                        </option>
+                    </ng-container>
+                    </ng-container>
+                </select>                        
+                <button (click)="resetDropdowns()" class="reset-filter-button"><fa-icon [icon]="faRefresh"></fa-icon> Nulstil Filter</button>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="movie-time-display-container">
+            <div class="cinema" *ngFor="let cinemaName of objectKeys(showsByCinemaAndDateFiltered)">
+            <div class="cinema-content">
+                <div class="header">
+                <h1>{{cinemaName}}</h1>
+                <p>{{SelectedCityName}}</p>
+                </div>
+                <div class="schedule">
+                <div class="day" *ngFor="let date of objectKeys(showsByCinemaAndDateFiltered[cinemaName])" [class.blurred]="shouldBlur(date)">
+                    <h2> {{ getDayAbbreviation(date) }}, {{ date | date: 'd/M' }}</h2>
+                    <div class="times">
+                    <div *ngFor="let show of showsByCinemaAndDateFiltered[cinemaName][date]">
+                        <a (click)="resetDropdowns()" class="show-btn" [href]="'booking/' + show.showId">
+                        <div class="time">  
+                            <span>{{show.hallName}}</span>
+                            <span class="movie-time">{{show.showDateTime | date:'HH:mm'}}</span>
+                            <span>2D</span>
+                        </div>
+                        </a>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </body>
+    

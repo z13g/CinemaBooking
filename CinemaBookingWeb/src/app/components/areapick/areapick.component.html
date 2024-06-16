@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinema City Selection</title>
+</head>
+<body>
+    <div class="frontpage">
+        <header class="logo">
+            <img src="../../../static/assets/images/logo.png" alt="logo">
+        </header>
+        <div class="choose-area-wrapper">
+            <div class="area-container">
+                <div class="area-content">
+                    <h1 class="header">Vælg by</h1>
+                    <div class="btn-areas">
+                        <button *ngFor="let area of AreaList" (click)="onAreaButtonClick(area.areaName, area.areaID)" class="area-btn">
+                            {{ area.areaName }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

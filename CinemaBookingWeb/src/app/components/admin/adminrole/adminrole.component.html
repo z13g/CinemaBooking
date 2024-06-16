@@ -1,0 +1,52 @@
+<div class="layout-container">
+    <div *ngIf="roleList.length && showList == true">
+        <h2 class="Movie-Text">Role List</h2>
+<table class="movie-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Role Name</th>
+            <th>
+                <button class="create-btn" (click)="toggleSave()">Create</button>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let role of roleList">
+            <td data-label="ID">{{role.roleID}}</td>
+            <td data-label="areaName">{{role.roleName}}</td>
+            <td>
+                <button class="edit-btn" (click)="editRole(role)">Edit</button>
+                <button class="delete-btn" (click)="deleteRole(role)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<div *ngIf="showForm == true">
+<div *ngIf="isEditMode == true">
+<h2 class="Movie-Text">Role Edit</h2>
+</div>
+<div *ngIf="isEditMode == false">
+<h2 class="Movie-Text">Role Create</h2>
+</div>
+<div class="form-container">
+    <form [formGroup]="roleForm" (ngSubmit)="save()">
+      <input type="hidden" formControlName="roleID">
+      <span>Role Name</span>
+      <input type="text" placeholder="Role Name" id="roleName" formControlName="roleName">
+          
+      <button type="submit">Save</button>
+      <button class="cancel-btn" type="cancel" (click)="toggleSave()">Cancel</button>
+      <small>
+        <div *ngIf="roleForm.get('roleName')?.invalid" class="error-message">
+           | Role Name is requrired |
+        </div>
+      </small>
+    </form>
+  </div>
+</div>
+  
+
+  

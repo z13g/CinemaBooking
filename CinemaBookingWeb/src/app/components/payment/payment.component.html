@@ -1,0 +1,63 @@
+<div *ngIf="bookShow" class="payment-container">
+    <div>
+        <div class="movie-info">
+            <img [src]="bookShow.movie?.movieLink" alt="Shez">
+            <div class="details">
+                <p class="movie-mics-info">2D Ingen undertekster</p>
+                <h1>{{ bookShow.movie?.title }}</h1>
+                <p>i {{ bookShow.cinemaName }}</p>
+                <p class="cinema-time-start">Starter {{ bookShow.showDateTime | date:'HH:mm' }}, {{ bookShow.showDateTime | date:'EEEE, d MMMM' }}</p>
+                <p class="cinema-time-end">Slutter 13:30, 12. December</p>
+                <div class="hall-ticket-info">
+                    <div class="hall-name-display">Sal 1</div>
+                    <div class="chosen-tickets" [ngClass]="{'hasEntries' : bookShow.selectedSeats}">
+                        <div *ngFor="let seat of bookShow.selectedSeats" class="chosen-ticket">
+                            <div class="chosen-ticket-content">
+                                <span>Række</span>
+                                <div class="chosen-ticket-details">{{ seat.seatRow }}</div>
+                                <span>Sæde</span>
+                                <div class="chosen-ticket-details">{{ seat.seatNumber }}</div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <hr class="split-hr">
+        <div class="order-summary">
+            <div class="left">
+                <h1>Min odrer</h1>
+                <div class="order-details">
+                    <div class="order" *ngFor="let order of bookShow.selectedSeats">
+                        <p class="order-name">Billet inkl. gebyr</p>
+                        <p class="order-price">{{ bookShow.price }}</p>
+                    </div>
+                    <hr class="order-hr">
+                    <div class="total-price">
+                        <p class="total-price-name">Total</p>
+                        <p class="price">{{ totalPrice }} DKK</p>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <h1>Mine oplysninger</h1>
+                <div class="user-info">
+                    <p>{{ name }}</p>
+                    <p>{{ email }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="bookShow" class="booking-footer">       
+    <span>Overblik</span>
+    <div class="right">
+        <div class="time">
+            <span>Tid tilbage</span>
+            <p id="countdown">{{ formatTime(timeLeft) }}</p>
+        </div>
+        <hr class="footer-standing-hr">
+        <button class="next-button back-button" (click)="cancelOrder()">Annuller</button>
+        <button class="next-button" (click)="bookSeats()">Køb</button>
+    </div>
+</div>

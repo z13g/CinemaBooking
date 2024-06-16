@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.html {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    background: url(../assets/login-wallpaper.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginTitle {
+    padding-bottom: 3rem;
+    text-shadow: 1px 1px 1px black;
+}
+
+
+.input-group input {
+    min-width: 10rem;
+    max-width: 10rem;
+    max-height: 1rem;
+    /* overflow: hidden; */
+    border-radius: 0;
+    border: 1px solid black;
+    
+}
+
+.passwordDiv {
+    display: inline-flex;
+    align-items: center;
+}
+
+.passwordDiv input {
+    width: calc(10rem - 2rem);
+    min-width: calc(10rem - 2rem);
+    max-width: calc(10rem - 2rem);
+    max-height: 1rem;
+    height: 1rem;
+    border-right: none;
+}
+
+.hidePasswordBtn {
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    border-left: none;
+    padding: 0;
+    cursor: pointer;
+    background: white;
+    max-width: 2rem;
+    width: 2rem;
+    height: 1rem;
+    max-height: 1rem;
+    color: black;
+}
+
+
+.input-group label {
+    padding-right: 1rem;
+    text-shadow: 1px 1px 1px black;
+}
+
+
+.loginButton {
+    border: 1px solid white;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    cursor: pointer;
+}
+
+.login-content {
+    background: #dddd;
+    box-shadow: 1px 1px 20px 8px #ffffff;
+    border: 1px solid white;
+    padding: 2rem;
+}
+
+.passwordInput {
+    border-right: none;
+}

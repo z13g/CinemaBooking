@@ -1,0 +1,52 @@
+<div class="layout-container">
+    <div *ngIf="genreList.length && showList == true">
+        <h2 class="Movie-Text">Genre List</h2>
+<table class="movie-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Genre Name</th>
+            <th>
+                <button class="create-btn" (click)="toggleSave()">Create</button>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let genre of genreList">
+            <td data-label="ID">{{genre.genreID}}</td>
+            <td data-label="Genre-Name">{{genre.genreName}}</td>
+            <td>
+                <button class="edit-btn" (click)="editGenre(genre)">Edit</button>
+                <button class="delete-btn" (click)="deleteGenre(genre)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<div *ngIf="showForm == true">
+<div *ngIf="isEditMode == true">
+<h2 class="Movie-Text">Genre Edit</h2>
+</div>
+<div *ngIf="isEditMode == false">
+<h2 class="Movie-Text">Genre Create</h2>
+</div>
+<div class="form-container">
+    <form [formGroup]="genreForm" (ngSubmit)="save()">
+      <input type="hidden" formControlName="genreID">
+      <span>Genre Name</span>
+      <input type="text" placeholder="genreName" id="genreName" formControlName="genreName">
+
+      <button type="submit">Save</button>
+      <button class="cancel-btn" type="cancel" (click)="toggleSave()">Cancel</button>
+      <small>
+        <div *ngIf="genreForm.get('genreName')?.invalid" class="error-message">
+           | Genre Name is requrired |
+        </div>
+      </small>
+    </form>
+  </div>
+</div>
+  
+
+  

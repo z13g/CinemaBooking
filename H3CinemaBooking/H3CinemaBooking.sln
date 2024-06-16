@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H3CinemaBooking.API", "H3CinemaBooking.API\H3CinemaBooking.API.csproj", "{AD56764C-A708-4CF3-9E33-B0B26EA120DE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H3CinemaBooking.Repository", "H3CinemaBooking.Repository\H3CinemaBooking.Repository.csproj", "{7CE097B0-4D44-4CD4-BC1F-5B339328EF2D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H3CinemaBooking.Test", "H3CinemaBooking.Test\H3CinemaBooking.Test.csproj", "{A81FE78C-E3C2-45DD-94A5-81D2B815CF39}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD56764C-A708-4CF3-9E33-B0B26EA120DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD56764C-A708-4CF3-9E33-B0B26EA120DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD56764C-A708-4CF3-9E33-B0B26EA120DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD56764C-A708-4CF3-9E33-B0B26EA120DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CE097B0-4D44-4CD4-BC1F-5B339328EF2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CE097B0-4D44-4CD4-BC1F-5B339328EF2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CE097B0-4D44-4CD4-BC1F-5B339328EF2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CE097B0-4D44-4CD4-BC1F-5B339328EF2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A81FE78C-E3C2-45DD-94A5-81D2B815CF39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A81FE78C-E3C2-45DD-94A5-81D2B815CF39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A81FE78C-E3C2-45DD-94A5-81D2B815CF39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A81FE78C-E3C2-45DD-94A5-81D2B815CF39}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		        SolutionGuid = {4D3F7795-92C0-49A3-8874-0A8A0F54F5AD}
+		SolutionGuid = {97F58DBB-F992-431F-8EE5-BC8716065E4D}
+	EndGlobalSection
+EndGlobal

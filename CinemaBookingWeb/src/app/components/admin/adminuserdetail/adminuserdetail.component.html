@@ -1,0 +1,96 @@
+<div class="layout-container">
+    <div *ngIf="userDetailList.length && showList == true">
+        <h2 class="Movie-Text">UserDetail List</h2>
+<table class="movie-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>PhoneNumber</th>
+            <th>Role</th>
+            <th>isActive</th>
+
+            <th>
+                <button class="create-btn" (click)="toggleSave()">Create</button>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let userdetail of userDetailList">
+            <td data-label="ID">{{userdetail.userDetailID}}</td>
+            <td data-label="Name">{{userdetail.name}}</td>
+            <td data-label="Email">{{ userdetail.email }}</td>
+            <td data-label="PhoneNumber">+45 {{userdetail.phoneNumber }}</td>
+            <td data-label="RoleID">{{ userdetail.roleID }}</td>
+            <td data-label="isActive">{{ userdetail.isActive }}</td>
+            <td>
+                <button class="edit-btn" (click)="editUserDetail(userdetail)">Edit</button>
+                <button class="delete-btn" (click)="deleteUserDetail(userdetail)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<div *ngIf="showForm == true">
+<div *ngIf="isEditMode == true">
+<h2 class="Movie-Text">UserDetail Edit</h2>
+</div>
+<div *ngIf="isEditMode == false">
+<h2 class="Movie-Text">UserDetail Create</h2>
+</div>
+<div class="form-container">
+    <form [formGroup]="userDetailForm" (ngSubmit)="save()">
+      <input type="hidden" formControlName="userDetailID">
+      <span>Name</span>
+      <input type="text" placeholder="Name" id="name" formControlName="name">
+      <span>Email</span>
+      <input type="text" placeholder="Email" id="email" formControlName="email">
+      <div *ngIf="!isEditMode">
+      <span>Password</span>
+      <input type="text" placeholder="Password" id="password" formControlName="password">
+      </div>
+      <span>PhoneNumber</span>
+      <input type="text" placeholder="PhoneNumber" id="phonenumber" formControlName="phoneNumber">
+
+        <span>Role</span>
+        <select formControlName="roleID" id="roleID">
+            <option value="">Select Role</option>
+            <option *ngFor="let role of roleList" [value]="role.roleID">
+              {{ role.roleName }}
+            </option>
+          </select>
+
+          <div *ngIf="isEditMode" class="form-group">
+            <label for="isActiveSwitch">IsActive</label>
+            <div class="switch">
+                <input type="checkbox" id="isActiveSwitch" formControlName="isActive">
+                <span class="slider round"></span>
+            </div>
+        </div>
+        
+
+        <div class="button-group">
+            <button type="submit" class="save-btn">Save</button>
+            <button type="button" class="cancel-btn" (click)="toggleSave()">Cancel</button>
+        </div>
+
+        <div class="error-messages">
+            <div *ngIf="userDetailForm.get('name')?.invalid" class="error-message">
+                | Name is required |
+            </div>
+            <div *ngIf="userDetailForm.get('email')?.invalid" class="error-message">
+                | Email is required |
+            </div>
+            <div *ngIf="!isEditMode && userDetailForm.get('password')?.invalid" class="error-message">
+                | Password is required |
+            </div>
+            <div *ngIf="userDetailForm.get('phoneNumber')?.invalid" class="error-message">
+                | PhoneNumber is required |
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+  

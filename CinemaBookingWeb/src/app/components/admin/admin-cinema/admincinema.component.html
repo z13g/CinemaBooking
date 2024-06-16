@@ -1,0 +1,72 @@
+<div class="layout-container">
+    <div *ngIf="cinemaList.length && showList == true">
+        <h2 class="Movie-Text">Cinema List</h2>
+<table class="movie-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Number Of Halls</th>
+            <th>AreaID</th>
+            <th>
+                <button class="create-btn" (click)="toggleSave()">Create</button>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cinema of cinemaList">
+            <td data-label="ID">{{cinema.cinemaID}}</td>
+            <td data-label="Name">{{cinema.name}}</td>
+            <td data-label="Location">{{ cinema.location }}</td>
+            <td data-label="NumberofHalls">{{ cinema.numberOfHalls }}</td>
+            <td data-label="AreaID">{{ cinema.areaID }}</td>
+            <td>
+                <button class="edit-btn" (click)="editCinema(cinema)">Edit</button>
+                <button class="delete-btn" (click)="deleteCinema(cinema)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<div *ngIf="showForm == true">
+<div *ngIf="isEditMode == true">
+<h2 class="Movie-Text">Cinema Edit</h2>
+</div>
+<div *ngIf="isEditMode == false">
+<h2 class="Movie-Text">Cinema Create</h2>
+</div>
+<div class="form-container">
+    <form [formGroup]="cinemaForm" (ngSubmit)="save()">
+      <input type="hidden" formControlName="cinemaID">
+      <span>Name</span>
+      <input type="text" placeholder="Name" id="name" formControlName="name">
+      <span>Location</span>
+      <input type="text" placeholder="Location" id="location" formControlName="location">
+      <span>Number of Halls</span>
+      <input type="number" placeholder="Number Of Halls" id="numberofhalls" formControlName="numberOfHalls">
+        <span>Area</span>
+        <select formControlName="areaID" id="areaID">
+            <option value="">Select Area</option>
+            <option *ngFor="let area of areaList" [value]="area.areaID">
+              {{ area.areaName }}
+            </option>
+          </select>
+          
+      <button type="submit">Save</button>
+      <button class="cancel-btn" type="cancel" (click)="toggleSave()">Cancel</button>
+      <small>
+        <div *ngIf="cinemaForm.get('name')?.invalid" class="error-message">
+           | Name is requrired |
+        </div>
+        <div *ngIf="cinemaForm.get('location')?.invalid" class="error-message">
+          |  Location is requrired |
+        </div>
+      </small>
+    </form>
+  </div>
+</div>
+  
+
+  

@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Electrolize&family=Kanit&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&display=swap');
+
+.roboto-thin {
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+  }
+  
+  .roboto-light {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .roboto-regular {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .roboto-medium {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .roboto-bold {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .roboto-black {
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+  }
+  
+  .roboto-thin-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+  }
+  
+  .roboto-light-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  .roboto-regular-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .roboto-medium-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+  }
+  
+  .roboto-bold-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+  
+  .roboto-black-italic {
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+  }
+  
+
+/* Grundlæggende Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    padding-right: 40rem;
+    padding-left: 40rem;
+    background-color: white;
+    background-image: url('../../../static/assets/images/LoginBiograf.png'); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+.signin-section, .show-signup-section, .signup-section {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background: rgba(30, 30, 30, 0.6);
+    border-radius: 20px;
+    border: 1px solid rgba(48, 45, 45, 0.164);
+    box-shadow: 1px 1px 20px 6px rgba(0, 0, 0, 0.6);
+}
+
+.signin-section {
+    display: none;
+}
+
+.signin-section.show {
+    display: flex;
+}
+
+.show-signup-section {
+    display: none;
+}
+
+.show-signup-section.show {
+    display: flex;
+}
+  
+/* Login og Tilmeld Knapper */
+.sign-in-button, .sign-up-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+}
+
+.sign-in-button:hover, .sign-up-button:hover {
+    background-color: #c0392b;
+}
+
+.login-text {
+    font-size: 3rem;
+    padding-bottom: 5rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+  
+.sign-in-button {
+    display: inline;
+}
+  
+/* Tekst og links */
+.or, .forgot-password {
+    margin: 10px 0;
+}
+  
+.forgot-password {
+    color: white;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+    font-weight: 600;
+}
+  
+/* Styling af form input-felter */
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 3px solid #ddd;
+    border-radius: 5px;
+    display: block;
+    transition: border-color 0.3s;
+}
+
+.login-form input:focus {
+    outline: none;
+    border-color: #e74c3c;
+}
+
+.login-form {
+    width: 100%;
+    max-width: 400px;
+}
+  
+/* Stil Sign Up Section */
+.show-signup-section {
+    color: white;
+    text-align: center;
+    border: 1px solid black;
+    box-shadow: 1px 1px 20px 6px rgba(0, 0, 0, 0.6);
+    background: rgba(30, 30, 30, 0.8);
+    border-radius: 10px;
+}
+
+.signup-section {
+    display: none;
+}
+
+.signup-section.show {
+    display: flex;
+}
+  
+h1 {
+    margin-bottom: 20px;
+}
+  
+/* Tilpasning til mobile enheder */
+@media (max-width: 800px) {
+    .container {
+      flex-direction: column;
+      padding: 1rem;
+    }
+}
+  
+/* Password requirements */
+.pass-req-group {
+    display: flex;
+}
+
+.pass-req-group span {
+    margin-right: 10px;
+}
+
+.password-requirements {
+    display: none;
+}
+
+.password-requirements.show {
+    display: block;
+}
+
+.signup-field-error {
+    color: red;
+    margin-top: 5px;
+    display: none;
+}
+
+.login-field-error {
+    color: red;
+    margin-top: 5px;
+    display: none;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+    text-align: center;
+} 
+
+.show {
+    display: flex;
+}

@@ -1,0 +1,74 @@
+<div class="container">
+  <div id="signin-section" class="signin-section show">
+    <h2 class="login-text roboto-bold">Log ind</h2>
+    <!-- <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="login-form">
+      <input type="email" placeholder="Email" required>
+      <input type="password" placeholder="Adgangskode" required>
+      <div class="center">
+          <a href="#" class="forgot-password roboto-thin">Glemt Din Adgangskode?</a>
+      </div>
+      <div class="center">
+          <a (click)="showSignupDesign()" class="forgot-password roboto-thin">Har du ingen konto?</a>
+      </div>
+      <div class="center">
+          <button type="submit" class="sign-in-button">Log ind</button>
+      </div>
+    </form> -->
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="login-form">
+      <input formControlName="email" type="email" placeholder="Email" required>
+      <input formControlName="password" type="password" placeholder="Adgangskode" required>
+      <div id="login-cred-error" style="display: flex; text-align: center; justify-content: center;">
+        <span class="login-field-error"></span>
+      </div>
+      <div class="center">
+          <a href="#" class="forgot-password roboto-thin">Glemt Din Adgangskode?</a>
+      </div>
+      <div class="center">
+          <a (click)="showSignupDesign()" class="forgot-password roboto-thin">Har du ingen konto?</a>
+      </div>
+      <div class="center">
+          <button type="submit" class="sign-in-button">Log ind</button>
+      </div>
+    </form>    
+  </div>
+  <div class="signup-section" id="signup-section">
+    <h2 class="login-text roboto-bold">Sign Up</h2>
+    <form [formGroup]="signUpForm" (ngSubmit)="onSignUp()" class="login-form">
+        <input formControlName="name" type="text" placeholder="Navn" name="name" required (input)="onInputChange($event.target)">
+        <span id="name-error" class="signup-field-error"></span>
+        <input formControlName="email" type="email" name="email" placeholder="Email" required (input)="onInputChange($event.target)">
+        <span id="email-error" class="signup-field-error"></span>
+        <input formControlName="phoneNumber" type="phonenumber" name="phone" placeholder="Tlf" required (input)="onInputChange($event.target)">
+        <span id="phone-error" class="signup-field-error"></span>
+        <input formControlName="password" type="password" name="password" placeholder="Adgangskode" required (blur)="onInputBlur($event.target)" (focus)="onInputFocus($event.target)" (input)="onInputChange($event.target)">
+        <span id="password-error" class="signup-field-error"></span>
+        <div id="password-requirements" class="password-requirements">
+            <div class="pass-req-group">
+                <span id="pass-length-span">No</span><p class="roboto-thin">Mindst 8 tegn</p>
+            </div>
+            <div class="pass-req-group">
+                <span id="pass-digit-span">No</span><p class="roboto-thin">Indenholder et tal</p>
+            </div>
+            <div class="pass-req-group">
+                <span id="pass-lowercase-span">No</span><p class="roboto-thin">Indenholer et lille bogstav</p>
+            </div>
+            <div class="pass-req-group">
+                <span id="pass-uppercase-span">No</span><p class="roboto-thin">Indenholder et stort bogstav</p>
+            </div>
+            <div class="pass-req-group">
+                <span id="pass-symbol-span">No</span><p class="roboto-thin">Indenholder et symbol</p>
+            </div>
+        </div>
+        <input formControlName="retypePassword" type="password" name="retypePassword" placeholder="Genindtast adgangskode" required (input)="onInputChange($event.target)">
+        <span id="retypePassword-error" class="signup-field-error"></span>
+        <div id="signup-cred-error" style="display: flex; text-align: center; justify-content: center;">
+          <span class="login-field-error"></span>
+        </div>
+        <div class="center">
+            <a (click)="showSignupDesign()" class="forgot-password roboto-thin">Har du allerede en bruger?</a>
+        </div>
+        <div class="center">
+            <button type="submit" class="sign-in-button">Tilmeld dig</button>
+        </div>
+    </form>
+</div>
